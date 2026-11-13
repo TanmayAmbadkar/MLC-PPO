@@ -5,7 +5,7 @@ from datasets import load_dataset
 from transformers import AutoTokenizer
 from base_experiment.prompt import base_prompt
 from experiment2.reward import reward,valid_gold,require_validated_versions
-from evaluation.math500 import format_gold
+from evaluation.answers import format_gold
 from base_fast_vllm_rollout import _worker_environment
 p=argparse.ArgumentParser();p.add_argument('--adapter',required=True);p.add_argument('--output-dir',required=True);p.add_argument('--limit',type=int,default=0);a=p.parse_args();model='Qwen/Qwen3-4B-Base';rev='906bfd4b4dc7f14ee4320094d8b41684abff8539';tok=AutoTokenizer.from_pretrained(model,revision=rev);versions=require_validated_versions();root=Path(a.output_dir);root.mkdir(parents=True,exist_ok=True)
 specs=[('math500','HuggingFaceH4/MATH-500','test','6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be'),('aime2024','HuggingFaceH4/aime_2024','train','2fe88a2f1091d5048c0f36abc874fb997b3dd99a'),('aime2025','math-ai/aime25','test','563bb8404243c5f09de6ec262f2db674fe5bce9b'),('amc2023','math-ai/amc23','test','80815d37005feb82cd7f8fbc6901d5d3eff43057'),('minerva','svc-huggingface/minerva-math','test','aec85355cf57a4337f73d1bb03233288cb0344df')];items=[];scored={n:[] for n,*_ in specs}

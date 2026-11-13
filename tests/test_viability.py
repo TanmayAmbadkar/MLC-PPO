@@ -2,7 +2,7 @@ import sys, unittest
 from pathlib import Path
 import torch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from train_viability import group_advantages,actor_surrogate,viability_layers
+from train_base_viability import group_advantages,actor_surrogate,viability_layers
 class TestViability(unittest.TestCase):
  def test_all_layers_selects_every_layer_including_first_and_last(self):
   layers,aggregation=viability_layers('ppo','multilayer_mean',28,'0.5,0.75,1.0',True)

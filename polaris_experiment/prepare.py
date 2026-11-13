@@ -48,3 +48,18 @@ if len(selected)<5200:raise RuntimeError('Insufficient validated source records'
 for name,rows in [('train',selected[:5000]),('validation',selected[5000:5100]),('test',selected[5100:5200])]:
  (root/f'{name}.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in rows))
 (root/'exclusions.jsonl').write_text(''.join(json.dumps(x)+'\n' for x in exclusions));(root/'manifest.json').write_text(json.dumps({'dataset':repo,'revision':revision,'source_records':len(source),'candidate_count':len(candidates),'benchmark_prompts':len(refs),'splits':{'train':5000,'validation':100,'test':100},'seed':42,'exclusions':dict(counts),'similarity':'character 3–5 gram TF-IDF cosine >= 0.82','warning':'No guarantee of semantic overlap removal or correctness of source gold labels'},indent=2));print((root/'manifest.json').read_text())
+
+# Prepare the input expected by screen.py; never truncate a training prompt.
+from transformers import AutoTokenizer
+from base_experiment.prompt import base_prompt
+tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen3-4B-Base', revision='906bfd4b4dc7f14ee4320094d8b41684abff8539')
+train_rows = selected[:5000]
+compatible, too_long = [], []
+for row in train_rows:
+    n = len(tokenizer(base_prompt(row['problem']), add_special_tokens=False)['input_ids'])
+    if n <= 2048:
+        compatible.append(row)
+    else:
+        too_long.append({'id': row['id'], 'prompt_tokens': n})
+(root/'train_context_valid.jsonl').write_text(''.join(json.dumps(row, ensure_ascii=False)+'\n' for row in compatible))
+(root/'context_exclusions.json').write_text(json.dumps(too_long, indent=2))

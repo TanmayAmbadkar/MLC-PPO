@@ -5,8 +5,8 @@ from datasets import load_dataset
 from transformers import AutoTokenizer
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from experiment2.reward import reward,valid_gold,require_validated_versions
-from train_mlc_ppo import format_prompt
-from evaluation.math500 import format_gold
+from train_fast_viability import format_prompt
+from evaluation.answers import format_gold
 from fast_vllm_rollout import _worker_environment
 p=argparse.ArgumentParser();p.add_argument('--model',required=True);p.add_argument('--output-dir',required=True);p.add_argument('--limit',type=int,default=0);p.add_argument('--batch-size',type=int,default=32);a=p.parse_args()
 root=Path(a.output_dir);root.mkdir(parents=True,exist_ok=True);versions=require_validated_versions();tok=AutoTokenizer.from_pretrained('Qwen/Qwen2.5-Math-1.5B-Instruct')

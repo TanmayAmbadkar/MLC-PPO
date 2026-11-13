@@ -3,7 +3,7 @@ from pathlib import Path
 import torch
 from transformers import Qwen2Config,Qwen2ForCausalLM
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from train_full_critic import FullValueCritic
+from train_base_full_critic import FullValueCritic
 class FullCriticTest(unittest.TestCase):
  def test_separate_trainable_backbone_and_scalar_head(self):
   config=Qwen2Config(vocab_size=48,hidden_size=16,intermediate_size=32,num_hidden_layers=2,num_attention_heads=4,num_key_value_heads=2,max_position_embeddings=128,attention_dropout=0)

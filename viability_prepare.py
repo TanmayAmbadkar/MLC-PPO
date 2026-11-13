@@ -3,7 +3,7 @@
 import hashlib, json, random, re, unicodedata
 from pathlib import Path
 from datasets import load_dataset
-from reward import valid_gold
+from experiment2.reward import valid_gold
 from math_verify import parse, verify
 
 ROOT=Path('runs/experiment2'); OUT=Path('runs/viability_prepared');OUT.mkdir(parents=True,exist_ok=True)

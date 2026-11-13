@@ -36,10 +36,9 @@ See [results and limitations](docs/RESULTS.md) for other benchmarks, resource me
 | `train_base_trivial_loo.py` | 1.5B leave-one-out batch-baseline control |
 | `train_base_full_critic.py` | 1.5B separate full-critic PPO |
 | `base_fast_vllm_rollout.py`, `fast_vllm_worker.py` | Synchronous vLLM rollouts and sampling/training mismatch logging |
-| `harder_4b/` | Qwen3-4B LoRA training and full-critic feasibility pilots |
+| `harder_4b/` | Qwen3-4B LoRA and full-critic training |
 | `polaris_experiment/` | POLARIS preparation, screening, and benchmark evaluation |
-| `guru_experiment/` | Experimental multi-domain data and reward infrastructure |
-| `experiment1/`, `experiment2/`, `critic_validation/`, `calibration_experiment/` | Earlier experiments and diagnostics |
+| `experiment2/reward.py` | Pinned mathematical correctness verifier |
 | `pbs_*.sh` | PBS job scripts used on the research cluster |
 | `tests/` | Regression checks for the actor, critic, and training utilities |
 
@@ -49,15 +48,13 @@ The completed experiments used Python 3.11, PyTorch 2.10.0, Transformers 5.3.0, 
 
 `requirements.txt` lists the training-side dependencies. vLLM may require a separate compatible environment; use the [vLLM installation documentation](https://docs.vllm.ai/) for the local CUDA stack. Exact driver and kernel compatibility has not been tested outside the original cluster.
 
-The PBS scripts are **historical cluster-specific scripts**, not portable one-command recipes: they contain `/scratch/tsa5252` paths, conda environment names, GPU/memory requests, and evaluator dependencies. Review and adapt them before use. Dataset preparation is required before launching training. `polaris_experiment/prepare.py` pins its dataset and records overlap checks, but surface matching does not eliminate semantic or pretraining contamination.
+The PBS scripts are **historical cluster-specific scripts**, not portable one-command recipes: they contain `/scratch/tsa5252` paths, conda environment names, GPU/memory requests, and evaluator dependencies. Review and adapt them before use. Dataset preparation is required before launching training. `polaris_experiment/prepare.py` pins its dataset and records overlap checks, but surface matching does not eliminate semantic or pretraining contamination. As used originally, preparation also expects local Minerva and Olympiad benchmark files in `runs/hard_math_eval/`; see [reproducibility notes](docs/REPRODUCIBILITY.md).
 
 To run the CPU-compatible regression suite in a configured environment:
 
 ```bash
 python -m unittest discover -s tests -p 'test_*.py'
 ```
-
-The unfinished GURU prototype includes selected upstream Reasoning360 reward code under `guru_experiment/reference/` with its Apache-2.0 license. Its sandbox verifier requires Bubblewrap and the dependencies described in [the GURU notes](docs/REPRODUCIBILITY.md). Do not run generated code without an appropriate isolated environment.
 
 ## Important implementation limits
 
@@ -66,4 +63,4 @@ The unfinished GURU prototype includes selected upstream Reasoning360 reward cod
 - Memory numbers below are PyTorch allocation measurements, not total device-wide peaks including the separate vLLM process. The 4B CPU-offloaded critic was tested in a short update and checkpoint reload; it is not yet a completed long-run result.
 - Prior GSM8K reward audits found defective or ambiguous items. Do not interpret those historical MSE results as clean measurements of mathematical correctness.
 
-See [reproducibility notes](docs/REPRODUCIBILITY.md) and [POLARIS protocol](harder_4b/PROTOCOL.md). No model checkpoints, optimizer states, raw generated completions, credentials, or cluster logs are committed.
+See [reproducibility notes](docs/REPRODUCIBILITY.md) and [earlier 4B protocol](harder_4b/PROTOCOL.md). No model checkpoints, optimizer states, raw generated completions, credentials, or cluster logs are committed.

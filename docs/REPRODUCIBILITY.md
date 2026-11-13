@@ -18,11 +18,11 @@ Regenerate the paired confidence interval with `python results/paired_bootstrap.
 
 `old_log_probs` are recomputed from a full-sequence forward pass to align the unchanged-policy PPO ratio; separate rollout log probabilities are used to report the behavior/training discrepancy. This does not make the rollout and training distributions identical and is not an importance correction. Do not interpret the initial ratio check as proving exact on-policy sampling.
 
-## GURU experimental components
+## Benchmark preparation prerequisites
 
-`guru_experiment/reference/` contains selected reward implementations copied from LLM360/Reasoning360 commit `13158341d2a0dfe5f3bb80e7126ff21de0d16676`, distributed under the included Apache-2.0 license. It retains the upstream executor named `unsafe_local`; this code must only run within the Bubblewrap isolation provided by `guru_experiment/sandbox_verifier.py`. The sandbox implementation was tested with simple examples and is not a formally verified security boundary. It exposes a read-only training Python environment and a temporary filesystem. Validate isolation and resource limits on the target host before running untrusted code.
+The historical DeepScaleR and POLARIS preparation scripts expect local Minerva and Olympiad benchmark JSONL files at `runs/hard_math_eval/{minerva,olympiad}.jsonl` and the corresponding `_excluded.jsonl` files. These data files are not included. Provide the same benchmark files before running the scripts; do not silently skip the checks. The Minerva evaluation also reads the local scoreable subset. The POLARIS screening script can optionally exclude a previous pilot if `runs/polaris_4b/pilot/scored.jsonl` is available.
 
-`python -m pip install --target guru_experiment/vendor pylatexenc==2.10` restores the non-committed dependency expected by that prototype. The science domain additionally requires an independently hosted local verifier model. Two 24-problem GURU signal pilots scored zero across six domains for the evaluated 1.5B initializations; these small pilots do not rule out the dataset or constitute a training result. Large LiveCodeBench evaluation files were not included in the exact prompt-overlap check.
+The original code also explored GURU, but its experimental verifier and pilot scripts are omitted from this streamlined repository. Its small pilots are not treated as training results.
 
 ## Cluster-specific details
 

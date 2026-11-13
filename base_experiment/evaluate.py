@@ -5,7 +5,7 @@ from datasets import load_dataset
 from transformers import AutoTokenizer
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from experiment2.reward import reward,valid_gold,require_validated_versions
-from evaluation.math500 import format_gold
+from evaluation.answers import format_gold
 from fast_vllm_rollout import _worker_environment
 from base_experiment.prompt import base_prompt
 p=argparse.ArgumentParser();p.add_argument('--model',required=True);p.add_argument('--output-dir',required=True);p.add_argument('--limit',type=int,default=0);p.add_argument('--batch-size',type=int,default=32);a=p.parse_args()

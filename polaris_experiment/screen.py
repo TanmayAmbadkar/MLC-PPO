@@ -6,7 +6,8 @@ from vllm import LLM,SamplingParams
 from base_experiment.prompt import base_prompt
 MODEL='Qwen/Qwen3-4B-Base'; REV='906bfd4b4dc7f14ee4320094d8b41684abff8539'; ROOT=Path('runs/polaris_4b/screen');ROOT.mkdir(parents=True,exist_ok=True)
 rows=[json.loads(x) for x in Path('runs/polaris_4b/prepared/train_context_valid.jsonl').read_text().splitlines()]
-exclude={json.loads(x)['problem_id'] for x in Path('runs/polaris_4b/pilot/scored.jsonl').read_text().splitlines()}
+pilot_file=Path('runs/polaris_4b/pilot/scored.jsonl')
+exclude={json.loads(x)['problem_id'] for x in pilot_file.read_text().splitlines()} if pilot_file.exists() else set()
 rows=random.Random(491).sample([r for r in rows if r['id'] not in exclude],1000)
 tok=AutoTokenizer.from_pretrained(MODEL,revision=REV);prompts=[tok(base_prompt(r['problem']),add_special_tokens=False).input_ids for r in rows]
 engine=LLM(model=MODEL,revision=REV,dtype='bfloat16',max_model_len=max(map(len,prompts))+8192,gpu_memory_utilization=0.8,skip_tokenizer_init=True,max_num_seqs=16,enable_prefix_caching=False)

@@ -8,7 +8,7 @@ from transformers import Qwen2Config,Qwen2ForCausalLM
 from peft import LoraConfig,get_peft_model,PeftModel
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from train_mlc_ppo import (actor_surrogate,conditional_reference_kl,critic_architecture_config,
+from train_base_viability import (actor_surrogate,conditional_reference_kl,critic_architecture_config,
                            disable_dropout,load_policy_tokenizer,save_checkpoint)
 from mlcppo import MultiLayerCritic
 
@@ -45,7 +45,7 @@ class ReviewTests(unittest.TestCase):
   self.assertTrue(calls);self.assertTrue(torch.isfinite(model.model.layers[0].self_attn.q_proj.weight.grad).all())
  def test_adapter_only_tokenizer_fallback(self):
   sentinel=object()
-  with patch('train_mlc_ppo.AutoTokenizer.from_pretrained',side_effect=[OSError('no tokenizer'),sentinel]) as factory:
+  with patch('train_base_viability.AutoTokenizer.from_pretrained',side_effect=[OSError('no tokenizer'),sentinel]) as factory:
    self.assertIs(load_policy_tokenizer('base-model',Path('/adapter')),sentinel)
    self.assertEqual(factory.call_args_list[1].args[0],'base-model')
  def test_full_adapter_state_and_critic_reload(self):
