@@ -1,0 +1,26 @@
+{
+  "lr_2e-6": {
+    "samples": 50,
+    "correct": 13.0,
+    "accuracy": 0.26,
+    "training_tokens": 112701,
+    "decoding": "temperature=1 top_p=1, one sample per held-out prompt",
+    "max_completion_tokens": 8192
+  },
+  "lr_5e-6": {
+    "samples": 50,
+    "correct": 13.0,
+    "accuracy": 0.26,
+    "training_tokens": 134766,
+    "decoding": "temperature=1 top_p=1, one sample per held-out prompt",
+    "max_completion_tokens": 8192
+  },
+  "lr_1e-5": {
+    "samples": 50,
+    "correct": 16.0,
+    "accuracy": 0.32,
+    "training_tokens": 117203,
+    "decoding": "temperature=1 top_p=1, one sample per held-out prompt",
+    "max_completion_tokens": 8192
+  }
+}

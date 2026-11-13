@@ -1,0 +1,60 @@
+{
+  "dataset": "IFM/guru-RL-92k",
+  "revision": "2e2790a962a3c099bfb5ea61389cbf98a5ea439b",
+  "selection_seed": 2501,
+  "splits": {
+    "train": 1800,
+    "validation": 240,
+    "test": 240
+  },
+  "domains": {
+    "math": {
+      "available": 53981,
+      "excluded": 423,
+      "train": 300,
+      "validation": 40,
+      "test": 40
+    },
+    "code": {
+      "available": 1272,
+      "excluded": 0,
+      "train": 300,
+      "validation": 40,
+      "test": 40
+    },
+    "logic": {
+      "available": 4434,
+      "excluded": 0,
+      "train": 300,
+      "validation": 40,
+      "test": 40
+    },
+    "simulation": {
+      "available": 3730,
+      "excluded": 0,
+      "train": 300,
+      "validation": 40,
+      "test": 40
+    },
+    "science": {
+      "available": 3590,
+      "excluded": 1,
+      "train": 300,
+      "validation": 40,
+      "test": 40
+    },
+    "table": {
+      "available": 5777,
+      "excluded": 16,
+      "train": 300,
+      "validation": 40,
+      "test": 40
+    }
+  },
+  "excluded_exact_normalized_evaluation_prompts": 8778,
+  "skipped_evaluation_files": [
+    "offline_eval/codegen__livecodebench_279.parquet",
+    "online_eval/codegen__livecodebench_279.parquet"
+  ],
+  "note": "Exact normalized full-prompt matching only; semantic or differently formatted duplicates can remain. No scoring has been performed."
+}

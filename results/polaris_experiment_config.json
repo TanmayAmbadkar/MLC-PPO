@@ -1,0 +1,21 @@
+{
+  "model": "Qwen/Qwen3-4B-Base",
+  "model_revision": "906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "dataset": "POLARIS-Project/Polaris-Dataset-53K",
+  "dataset_revision": "296f8e34132e63f4a1d70e0dcc8bddebb43f03e4",
+  "methods": ["trivial", "final", "multilayer", "full_critic", "grpo"],
+  "seeds": [42, 43, 44],
+  "actor_training": "LoRA r32 alpha64 on attention and MLP projections",
+  "actor_learning_rate": 0.00001,
+  "learning_rate_note": "Provisional selection from a small, noisy 4B DeepScaleR pilot; held fixed across methods and seeds.",
+  "critic_learning_rate": 0.0001,
+  "full_critic": "Separate fully trainable BF16 critic with FP32 CPU Adam master weights and optimizer state; 2 GPUs per job.",
+  "other_methods": "1 GPU per job",
+  "train_responses_per_update": 64,
+  "responses_per_prompt": {"ppo": 1, "grpo": 4},
+  "max_completion_tokens": 8192,
+  "evaluation": "Greedy at 1M, 5M and 10M generated training tokens; MATH-500, AIME 2024/2025, AMC 2023 and a scoreable Minerva subset.",
+  "screening": "1000 independently sampled candidate problems, eight independent rollouts each; retain 2–6 successes of 8; at least 128 problems required; exclude reward-pilot prompts.",
+  "training_comparison_note": "Report reward-screening cost, generated tokens, GPU-hours, peak memory, uncertainty across seeds and benchmarks; no claim that likelihood mismatch is corrected.",
+  "rollout_mismatch": "Rollout engine and full-sequence training logits are not exactly identical; pilot measured approximately 0.7–0.8% tokens with absolute ratio deviation above 20%, without correction."
+}

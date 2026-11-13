@@ -1,0 +1,26 @@
+{
+  "train": {
+    "included": 1748,
+    "excluded": 52,
+    "excluded_by_domain": {
+      "table": 32,
+      "logic": 20
+    }
+  },
+  "validation": {
+    "included": 236,
+    "excluded": 4,
+    "excluded_by_domain": {
+      "logic": 2,
+      "table": 2
+    }
+  },
+  "test": {
+    "included": 233,
+    "excluded": 7,
+    "excluded_by_domain": {
+      "table": 4,
+      "logic": 3
+    }
+  }
+}

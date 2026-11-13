@@ -1,0 +1,16 @@
+{
+  "problems": 32,
+  "responses": 128,
+  "correct": 33.0,
+  "accuracy": 0.2578125,
+  "groups_0_4": {
+    "0": 15,
+    "1": 7,
+    "2": 5,
+    "3": 4,
+    "4": 1
+  },
+  "mixed_groups": 16,
+  "boxed_fraction": 0.921875,
+  "truncated_fraction": 0.0078125
+}

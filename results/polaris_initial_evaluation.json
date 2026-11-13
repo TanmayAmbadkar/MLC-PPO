@@ -1,0 +1,54 @@
+{
+  "model": "Qwen/Qwen3-4B-Base",
+  "revision": "906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "adapter": "none",
+  "decoding": "greedy",
+  "max_completion_tokens": 8192,
+  "benchmarks": {
+    "math500": {
+      "source": "HuggingFaceH4/MATH-500",
+      "revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+      "scored": 500,
+      "correct": 319.0,
+      "accuracy": 0.638,
+      "truncated": 16
+    },
+    "aime2024": {
+      "source": "HuggingFaceH4/aime_2024",
+      "revision": "2fe88a2f1091d5048c0f36abc874fb997b3dd99a",
+      "scored": 30,
+      "correct": 3.0,
+      "accuracy": 0.1,
+      "truncated": 4
+    },
+    "aime2025": {
+      "source": "math-ai/aime25",
+      "revision": "563bb8404243c5f09de6ec262f2db674fe5bce9b",
+      "scored": 30,
+      "correct": 0.0,
+      "accuracy": 0.0,
+      "truncated": 6
+    },
+    "amc2023": {
+      "source": "math-ai/amc23",
+      "revision": "80815d37005feb82cd7f8fbc6901d5d3eff43057",
+      "scored": 40,
+      "correct": 22.0,
+      "accuracy": 0.55,
+      "truncated": 2
+    },
+    "minerva": {
+      "source": "svc-huggingface/minerva-math",
+      "revision": "aec85355cf57a4337f73d1bb03233288cb0344df",
+      "scored": 265,
+      "correct": 76.0,
+      "accuracy": 0.28679245283018867,
+      "truncated": 35
+    }
+  },
+  "verifier_versions": {
+    "math-verify": "0.9.0",
+    "latex2sympy2-extended": "1.11.0",
+    "antlr4-python3-runtime": "4.13.2"
+  }
+}

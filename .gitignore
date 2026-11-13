@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.venv/
+.env
+.env.*
+data/
+runs/
+*.log
+*.pt
+*.bin
+*.safetensors
+guru_experiment/vendor/

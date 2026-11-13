@@ -1,0 +1,26 @@
+{
+  "model": "Qwen/Qwen3-4B-Base",
+  "revision": "906bfd4b4dc7f14ee4320094d8b41684abff8539",
+  "mode": "full_critic",
+  "max_completion": 8192,
+  "sampled_tokens": 3879,
+  "repeated_to_stress_cap": true,
+  "actor": "LoRA r32 alpha64 attention+MLP",
+  "critic": "separate full BF16 model; FP32 CPU AdamW masters, gradients and optimizer states",
+  "initial_adapter_save_seconds": 0.5865643518045545,
+  "vllm_engine_init_seconds": 16.60631766077131,
+  "vllm_generation_seconds": 70.68061434943229,
+  "rollout_worker_seconds": 94.7683538729325,
+  "actor_update_seconds": 6.851126407273114,
+  "updated_adapter_save_seconds": 0.5735201667994261,
+  "critic_forward_backward_cpu_optimizer_seconds": 32.658356609754264,
+  "peak_reserved_bytes": [
+    20455620608,
+    19297992704
+  ],
+  "peak_allocated_bytes": [
+    19833154048,
+    17705231872
+  ],
+  "note": "Synthetic stress update, not a learning result; worker GPU peak and live adapter reload overhead are not measured by PyTorch peak counters."
+}

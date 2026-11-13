@@ -1,0 +1,187 @@
+[
+  {
+    "problem_id": 1016,
+    "decision": "accept",
+    "independent_answer": "52",
+    "derivation": "One third of 78 is 26 kiwi, leaving 78 - 26 = 52 strawberries."
+  },
+  {
+    "problem_id": 4654,
+    "decision": "accept",
+    "independent_answer": "50",
+    "derivation": "If Tom has T years, T + (T/2 - 5) = 70, so T = 50."
+  },
+  {
+    "problem_id": 4795,
+    "decision": "exclude",
+    "derivation": "The wording does not clearly state whether the bathroom cleaning time applies to each of the two bathrooms or to both together."
+  },
+  {
+    "problem_id": 967,
+    "decision": "accept",
+    "independent_answer": "21",
+    "derivation": "The decrease is one quarter of 84, which is 21 degrees."
+  },
+  {
+    "problem_id": 160,
+    "decision": "accept",
+    "independent_answer": "295",
+    "derivation": "John pays one quarter of 300 + 80, or 95, plus 200 for alcohol, totaling 295."
+  },
+  {
+    "problem_id": 6664,
+    "decision": "accept",
+    "independent_answer": "2",
+    "derivation": "After toilet paper and paper towels, 35 - 15 - 14 = 6 remains for three boxes, or 2 per box."
+  },
+  {
+    "problem_id": 1448,
+    "decision": "accept",
+    "independent_answer": "112",
+    "derivation": "Fourteen students have five notebooks and fourteen have three: 14*5 + 14*3 = 112."
+  },
+  {
+    "problem_id": 2175,
+    "decision": "exclude",
+    "derivation": "The wording '1/5 times more' is ambiguous about whether Queen has 1/5 as many or 1/5 more than Alannah."
+  },
+  {
+    "problem_id": 3880,
+    "decision": "accept",
+    "independent_answer": "210",
+    "derivation": "The new delivery costs 20*18 = 360 versus 10*15 = 150 previously; the difference is 210."
+  },
+  {
+    "problem_id": 2486,
+    "decision": "accept",
+    "independent_answer": "6",
+    "derivation": "She reads 16*(3+6.5) = 152 pages; the remaining 96 pages require 6 hours."
+  },
+  {
+    "problem_id": 7359,
+    "decision": "accept",
+    "independent_answer": "20",
+    "derivation": "The jeans together cost 110 - 40 - 30 = 40; each of two pairs costs 20."
+  },
+  {
+    "problem_id": 6814,
+    "decision": "accept",
+    "independent_answer": "75",
+    "derivation": "The buses carry 12, 24, 18, and 21 people, totaling 75."
+  },
+  {
+    "problem_id": 4914,
+    "decision": "accept",
+    "derivation": "120 - 30 - 15 - 35 - 5 = 35 minutes.",
+    "independent_answer": "35"
+  },
+  {
+    "problem_id": 4409,
+    "decision": "accept",
+    "derivation": "15*24 = 360 tins; 95% remain, so 342.",
+    "independent_answer": "342"
+  },
+  {
+    "problem_id": 5177,
+    "decision": "accept",
+    "derivation": "Sylvia makes 10 errors and Sergio 4, so Sergio gets 6 more correct.",
+    "independent_answer": "6"
+  },
+  {
+    "problem_id": 63,
+    "decision": "exclude",
+    "derivation": "The stated goal does not say whether 30 is a daily or cumulative goal."
+  },
+  {
+    "problem_id": 1354,
+    "decision": "accept",
+    "derivation": "The yard is 20*13 = 260 square yards; the shed takes 3*5 = 15, leaving 245.",
+    "independent_answer": "245"
+  },
+  {
+    "problem_id": 5019,
+    "decision": "exclude",
+    "derivation": "The question does not state that Bailey transfers her suckers to Jen."
+  },
+  {
+    "problem_id": 2907,
+    "decision": "accept",
+    "derivation": "30% of 350 is 105.",
+    "independent_answer": "105"
+  },
+  {
+    "problem_id": 3800,
+    "decision": "accept",
+    "derivation": "Jacob has 28 - 2 = 26; 62 + 28 + 26 = 116.",
+    "independent_answer": "116"
+  },
+  {
+    "problem_id": 3502,
+    "decision": "accept",
+    "derivation": "Morning is 5 and afternoon plus evening is 3*5 = 15, totaling 20.",
+    "independent_answer": "20"
+  },
+  {
+    "problem_id": 3538,
+    "decision": "exclude",
+    "derivation": "Whether charging at the exact final destination is counted is unspecified."
+  },
+  {
+    "problem_id": 2894,
+    "decision": "accept",
+    "derivation": "Half of 8*18 = 144 is 72.",
+    "independent_answer": "72"
+  },
+  {
+    "problem_id": 3585,
+    "decision": "accept",
+    "derivation": "113 + 50 - 85 = 78 meals remain.",
+    "independent_answer": "78"
+  },
+  {
+    "problem_id": 2137,
+    "decision": "exclude",
+    "derivation": "100 times more is ambiguous between a multiplier for the final count and the increase."
+  },
+  {
+    "problem_id": 3426,
+    "decision": "accept",
+    "derivation": "The first bill becomes two fifties; the other yields five tens and ten fives, totaling 17.",
+    "independent_answer": "17"
+  },
+  {
+    "problem_id": 2335,
+    "decision": "accept",
+    "derivation": "Four loaves give 4*15 = 60 slices, divided among ten people gives 6.",
+    "independent_answer": "6"
+  },
+  {
+    "problem_id": 256,
+    "decision": "accept",
+    "derivation": "3 3/8 inches is 13.5 quarter inches, each representing 8 miles: 108.",
+    "independent_answer": "108"
+  },
+  {
+    "problem_id": 3349,
+    "decision": "accept",
+    "derivation": "2*Nada + 100 = 1000, so Nada is 450 square feet.",
+    "independent_answer": "450"
+  },
+  {
+    "problem_id": 4713,
+    "decision": "exclude",
+    "derivation": "Four times more is ambiguous between four times as many and an increase of four times."
+  },
+  {
+    "problem_id": 3493,
+    "decision": "accept",
+    "derivation": "Twice 14 less 6 is 22.",
+    "independent_answer": "22"
+  },
+  {
+    "problem_id": 3651,
+    "decision": "accept",
+    "derivation": "Four pairs use 8 socks, leaving 25 - 8 = 17.",
+    "independent_answer": "17"
+  }
+]

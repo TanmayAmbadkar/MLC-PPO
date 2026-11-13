@@ -1,0 +1,23 @@
+{
+  "dataset": "POLARIS-Project/Polaris-Dataset-53K",
+  "revision": "296f8e34132e63f4a1d70e0dcc8bddebb43f03e4",
+  "source_records": 53291,
+  "candidate_count": 10000,
+  "benchmark_prompts": 1546,
+  "splits": {
+    "train": 5000,
+    "validation": 100,
+    "test": 100
+  },
+  "seed": 42,
+  "exclusions": {
+    "duplicate": 255,
+    "unparseable_gold": 166,
+    "image_markup": 56,
+    "near_overlap": 5,
+    "conflicting_duplicate_answers": 2,
+    "exact_overlap": 1
+  },
+  "similarity": "character 3\u20135 gram TF-IDF cosine >= 0.82",
+  "warning": "No guarantee of semantic overlap removal or correctness of source gold labels"
+}
